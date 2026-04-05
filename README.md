@@ -1,81 +1,125 @@
-# Credit Approval System
+# Credit Approval Backend System
 
-This project is a credit approval system that determines loan eligibility based on past loan data. It includes APIs for adding new customers, checking loan eligibility, processing new loans, and viewing loan details.
+A Django REST Framework–based backend service that simulates a lending infrastructure workflow for evaluating borrower eligibility and processing loan approval decisions using structured PostgreSQL data models.
+
+This project demonstrates how financial platforms can automate credit scoring, eligibility checks, and loan lifecycle tracking through scalable REST APIs.
+
+---
 
 ## Features
 
-- Add a new customer to the customer table
-- Check loan eligibility based on credit score
-- Process a new loan based on eligibility
-- View loan details and customer details
-- View all current loan details by customer ID
+- Customer registration service
+- Credit eligibility evaluation engine
+- Loan approval decision workflow
+- Loan history tracking per customer
+- REST API endpoints for lending infrastructure simulation
+- Docker-based containerized setup
+- PostgreSQL-backed relational data storage
 
-## Technologies Used
+---
 
+## Tech Stack
+
+- Python
 - Django
+- Django REST Framework
 - PostgreSQL
 - Docker
 - Docker Compose
 
+---
+
 ## API Endpoints
 
-All APIs run under `/api/v1/`:
-1. `/register/`: Add a new customer
-2. `/check-eligibility/`: Check loan eligibility based on credit score
-3. `/create-loan/`: Process a new loan based on eligibility
-4. `/view-loan/loan_id/`: View loan details and customer details by loan ID
-5. `/view-loans/customer_id/`: View all current loan details by customer ID
+All endpoints are available under:
 
-Note: Make sure to add a slash ('/') at the end of the API.
+/api/v1/
 
-## Pre-requisites
+### Available APIs
 
-- python
-- docker
-- Docker Desktop
-- docker-compose
+POST /register/
+Create a new customer profile
 
-## Running the Application
+POST /check-eligibility/
+Evaluate borrower eligibility using credit score logic
 
->Clone this project
-```bash
-git clone https://github.com/kushalv238/credit_approval_system.git
-```
->Navigate to the project directory
-```bash
-cd credit_approval_system
-```
->Start the Docker engine by starting the Docker Desktop or by using [OS utilities](https://docs.docker.com/config/daemon/start/)
+POST /create-loan/
+Process a loan application after eligibility validation
 
->Run Docker Compose
-```bash
+GET /view-loan/<loan_id>/
+Retrieve loan details by loan ID
+
+GET /view-loans/<customer_id>/
+Retrieve all loans linked to a customer
+
+---
+
+## Project Architecture Highlights
+
+This backend system demonstrates:
+
+- relational schema modeling for lending workflows
+- modular Django app structure
+- REST API design for financial decision pipelines
+- eligibility computation logic
+- containerized deployment environment
+
+These components reflect how lending infrastructure services operate internally in fintech platforms.
+
+---
+
+## Running the Project Locally
+
+Clone repository
+
+git clone https://github.com/Pranjalmishr1/credit-approval-backend.git
+
+Navigate into project directory
+
+cd credit-approval-backend
+
+Start Docker services
+
 docker-compose up
-```
->Access the APIs at
-```bash
+
+Access API
+
 http://localhost:8000/api/v1/
-```
 
-## Testing the project
-Use this Postman collection with existing APIs to test the project
+---
 
-[Collection](https://www.postman.com/telecoms-geologist-66457404/workspace/open/collection/26309885-7d351ebb-b7c9-4ee6-8447-239e59c549bc)
+## Environment Setup
 
-Note: Change the agent to [desktop agent](https://www.postman.com/downloads/postman-agent/) if you run Postman on a browser. The option can be found on the bottom right.
+Create a `.env` file in project root and add:
 
-## Adding production secrets
-Create a ```.env``` file in the root directory of this project & add a [SECRET_KEY](https://docs.djangoproject.com/en/5.0/ref/settings/#secret-key) for django to use.
->Run the following command in your Django project's Python shell to generate a secret key
-```bash
+SECRET_KEY=your_secret_key_here
+
+Generate a key using:
+
 from django.core.management.utils import get_random_secret_key
 get_random_secret_key()
-```
->Copy the new SECRET_KEY that is generated & paste it to your .env file.
-```
-SECRET_KEY=your_secret_key_here
-```
 
-Note: By default this application uses an insecure key please change it to avoid unwanted attacks.
+---
+
+## Use Case
+
+This project simulates backend infrastructure used in lending platforms to:
+
+- evaluate borrower eligibility
+- process structured approval decisions
+- manage loan lifecycle data
+- expose APIs consumed by external financial services
+
+---
 
 ## Author
-[Kushal Vadodaria](https://linkedin.com/in/kushal-vadodaria/)
+
+**Pranjal Mishra**
+
+Backend Developer | Django | PostgreSQL | REST APIs | Fintech Systems
+
+LinkedIn:
+https://www.linkedin.com/in/1pranjal-mishra
+
+GitHub:
+https://github.com/Pranjalmishr1
