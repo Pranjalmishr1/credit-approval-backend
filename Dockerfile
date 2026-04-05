@@ -12,6 +12,7 @@ ENV PATH="/venv/bin:$PATH"
 COPY ./requirements.txt /code/requirements.txt
 RUN pip install -r requirements.txt
 
+
 FROM python:3 AS runner
 
 WORKDIR /code
@@ -21,3 +22,5 @@ COPY --from=compiler /venv /venv
 ENV PATH="/venv/bin:$PATH"
 
 COPY . /code/
+
+CMD python src/credit_engine/manage.py migrate && python src/credit_engine/manage.py runserver 0.0.0.0:$PORT
