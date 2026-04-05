@@ -85,8 +85,6 @@ WSGI_APPLICATION = 'credit_engine.wsgi.application'
 import dj_database_url
 import os
 
-import dj_database_url
-import os
 
 DATABASES = {
     "default": dj_database_url.config(
